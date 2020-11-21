@@ -48,7 +48,6 @@ app.post('/api/users/create', (req,res) => {
 
 // get user by id
 app.get('/api/users/:id', (req,res) => {
-
     (async () => {
         try{
             const doc = db.collection('utilisateur').doc(req.params.id); 
