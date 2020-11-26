@@ -32,10 +32,11 @@ app.post('/api/users/create', (req,res) => {
                 nom: req.body.nom,
                 prenom: req.body.prenom,
                 mail: req.body.mail,
-                themes: req.body.themes
+                themes: req.body.themes,
+                identifiant: req.body.identifiant
             });
 
-            return res.status(200).send();
+            return res.status(200).send("OK");
         }catch(error) {
             console.log("Error : ",error);
             return res.status(500).send(error);
