@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "projetmobilite-a0b6f",
+  "private_key_id": "95a4f3d9046c4505a47b1fc8a1250413c2302ebb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC5rWFZB6eMTLjS\n6wugtUy8rbKD+nIYXmzPmalhllHqvAgTs1JuylJUirn9wwYvkB/ZMytBykCrUB6E\n77YQNFWA+wgImpiSF79Om/g/Kq6TWntEwtxUrYatl8WyA+sqD1j9uRunQhjcrix2\nVP+BeplAlrVTh7+80cI1IeACd3Gghdn1blp/gSYSWW96e977uneFz2/uKQDldnSZ\nKsUaqg4CDnbTdMC4YjUjmvd8dca581Q2pksT7iKBIsrrtlxgVAa7EaKZHw6kox0F\nET4b/syGmiec13DA0xlo6R1c1ql2CpseGqxZCU0Hzrg9vXx7vxV1L7vhgavl0zAe\ntWIMI53fAgMBAAECggEABGLxiUY+FgHmzPbytCz6tclVyYMSwztI6O2SicOpOaHl\nbvPYxaIUH9kLbOG0eZKmFF4xoY3clg1d+ALRvgSHBv4abJ3gxFLKO0kwzlF84pj2\nfmwI4QpyB89PsjNTXZhXwma8lU76+YQ3Eknsko20g0kML5lDzL9/UkDzr7TU0D35\nnU9b6zJ2dWNfWOecspfJOD6gwSpp0m68o7uYc1Xzr72U60CPIxl7k9kKp4BCG53v\nDlKANwE1LdLbOWp0NFLRDcixDIcwj9xaApPTiJHx7SgZgVuN6wX9hcOYD3MU8Byz\njI36q9tVUcBjRTRxa6P0UTdOYFJjGF3q7Qw5KalnQQKBgQDrjeakybRxnxJhZJ06\nta2c5WjMIyZfyaak9UBt+evAx043v+GUjCYpQmnytHqiY92LlU4KLrN021qWl3jT\ngbyzClYXrbqebJ/JX5tldnqz9N5XjHz1hm6ut4FJrN4RoNK1R0mLrA+MkNlaZYDh\nBrfkpOio+1/N/QfgOXnS3JBYVQKBgQDJyzGz9vick7D5toms52RogrU5Nj+DB7OR\nrddk+SXnZ7EaE9DFczV5lPERY9nOgljNkgH8etHXKpUPd4ueaY48kyqsAe2bDqK4\nRAV1atlmDkShymFNm3RgSKJM4QLkBoHO989QyRVsdz/YjghdXIGCf98VV2lZQ+XX\nHwvLabShYwKBgCtuurxfxLm+jvEOUD9nCGAJnM0nHghDckqwPfUJRAMDvNRiuQFe\n5hpteIOb65DNwSffm8gc3FILsCRcQZceMOECYuVyzxovBTdoPYrz0aQk3mpeKRxM\ncVQd2eTvzvKJKNDsGA985lEQ1ELqvFzBlF7AWXXvA7dDlJQvhNrweF0RAoGBAIZM\nFOgQlaSfJkkKktXfqZNkafeJgvtRRNDPQWqR5gf7moIgbfD6m7wuw8EvEuW9Ghy1\n71x44O6yCEIi7WigF2l5CA0xu1BWjTTVEEz0r3qcRFDov5lGvEzYCivgFGxtaDa1\n9eNt8DQfqP4WiLqZtheDwpQReKtP5McmglL+JpjBAoGAMBjjpIEF5KvdohemEtSg\nznAwH6x/NuXDhgZe9yj36tz6rC6k3USvECymBT3gxEyp3ZJqHTdx/rQKc6iaEHqd\nEk2d9pKxisYCW6Q0O49TVaYVRV8JLBLIf4Qur9XHBedwJ0tzeZrgmKNyYFcCCXRc\nmzf1us1cS6U37OTLs19984w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-7k1tr@projetmobilite-a0b6f.iam.gserviceaccount.com",
+  "client_id": "111424307735742730914",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-7k1tr%40projetmobilite-a0b6f.iam.gserviceaccount.com"
+}
