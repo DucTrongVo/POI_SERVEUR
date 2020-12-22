@@ -23,18 +23,18 @@ app.get("/hello-world", (req, res) => {
 });
 
 
-// Create
+// Create User
 app.post('/api/users/create', (req,res) => {
 
     (async () => {
         try{
-            await db.collection('utilisateur').doc()
+            await db.collection('utilisateur').doc('/'+req.body.identifiant+'/')
             .create({
                 nom: req.body.nom,
                 prenom: req.body.prenom,
                 mail: req.body.mail,
                 themes: req.body.themes,
-                identifiant: req.body.identifiant
+                photoURL: req.body.photoURL
             });
 
             return res.status(200).send("OK");
@@ -45,6 +45,32 @@ app.post('/api/users/create', (req,res) => {
     })();
 });
 
+// Create pointInteret
+app.post('/api/pointInteret/create', (req,res) => {
+
+    (async () => {
+        try{
+            await db.collection('pointInteret').doc('/'+req.body.id+'/')
+            .create({
+                nom: req.body.nom,
+                description: req.body.description,
+                street: req.body.street,
+                postalCode: req.body.postalCode,
+                city: req.body.city,
+                country: req.body.country,
+                lat: req.body.lat,
+                lon: req.body.lon,
+                themes: req.body.themes,
+                url: req.body.url
+            });
+
+            return res.status(200).send("OK");
+        }catch(error) {
+            console.log("Error : ",error);
+            return res.status(500).send(error);
+        }
+    })();
+});
 
 // Read
 
@@ -122,6 +148,42 @@ app.get('/api/search/users/theme/:theme', (req,res) => {
             });
             return res.status(200).send(users);  
             
+        }catch(error) {
+            console.log("Error : ",error);
+            return res.status(500).send(error);
+        }
+    })();
+});
+
+// get points intérêt:
+app.get('/api/pointInteret', (req,res) => {
+    (async () => {
+        try{
+            const query = db.collection('pointInteret'); 
+            let response = [];
+
+            await query.get().then(querySnapshot => {
+                let docs = querySnapshot.docs;
+                for(let doc of docs){
+                    const pointIteret = {
+                        id: doc.id,
+                        nom: doc.data().nom,
+                        description: doc.data().description,
+                        street: doc.data().street,
+                        postalCode: doc.data().postalCode,
+                        city: doc.data().city,
+                        country: doc.data().country,
+                        lat: doc.data().lat,
+                        lon: doc.data().lon,
+                        themes: doc.data().themes,
+                        url: doc.data().url
+                    }
+                    response.push(pointIteret);
+                }
+                return response;
+            });
+            
+            return res.status(200).send(response);
         }catch(error) {
             console.log("Error : ",error);
             return res.status(500).send(error);
