@@ -34,7 +34,8 @@ app.post('/api/users/create', (req,res) => {
                 prenom: req.body.prenom,
                 mail: req.body.mail,
                 themes: req.body.themes,
-                photoURL: req.body.photoURL
+                photoURL: req.body.photoURL,
+                identifiant: req.body.identifiant
             });
 
             return res.status(200).send("OK");
@@ -100,11 +101,7 @@ app.get('/api/search/users/nom/:nom', (req,res) => {
             const utilisateurRef = db.collection('utilisateur');
             // Create a query against the collection
             const queryRef = await  utilisateurRef.where('nom', '==', req.params.nom).get();
-            if (queryRef.empty) {
-                console.log('No matching documents.');
-                return;
-            }  
-           
+            
             queryRef.forEach(doc => {
             users.push(doc.data());
             // console.log(doc.id, '=>', doc.data());
@@ -117,7 +114,7 @@ app.get('/api/search/users/nom/:nom', (req,res) => {
             console.log("Error : ",error);
             return res.status(500).send(error);
         }
-    })();
+    })();git 
 });
 
 // get user by theme
@@ -148,6 +145,33 @@ app.get('/api/search/users/theme/:theme', (req,res) => {
             });
             return res.status(200).send(users);  
             
+        }catch(error) {
+            console.log("Error : ",error);
+            return res.status(500).send(error);
+        }
+    })();
+});
+
+// get all Themes
+app.get('/api/themes', (req,res) => {
+    (async () => {
+        try{
+            const query = db.collection('Theme');
+            let response = [];
+
+            await query.get().then(querySnapshot => {
+                let docs = querySnapshot.docs;
+                for(let doc of docs){
+                    const theme = {
+                        id: doc.id,
+                        nom: doc.data().Nom
+                    };
+                    response.push(theme);
+                }
+                return response;
+            });
+
+            return res.status(200).send(response);
         }catch(error) {
             console.log("Error : ",error);
             return res.status(500).send(error);
