@@ -64,7 +64,7 @@ app.post('/api/pointInteret/create', (req,res) => {
                 lon: req.body.lon,
                 themes: req.body.themes,
                 url: req.body.url,
-                //messages: req.body.messages
+                messages: req.body.messages
             });
 
             return res.status(200).send("OK");
@@ -203,7 +203,7 @@ app.get('/api/pointInteret', (req,res) => {
                         lon: doc.data().lon,
                         themes: doc.data().themes,
                         url: doc.data().url,
-                        //messages: doc.data().messages
+                        messages: doc.data().messages
                     }
                     response.push(pointIteret);
                 }
@@ -258,6 +258,34 @@ app.put('/api/update/user/:identifiant/:pointVisite', (req,res) => {
             }
             await document.update({
                 pointsVisites: pointsVisites
+            });
+
+            return res.status(200).send();
+        }catch(error) {
+            console.log("Error : ",error);
+            return res.status(500).send(error);
+        }
+    })();
+});
+
+// update points interet
+app.put('/api/update/pointInteret', (req,res) => {
+    (async () => {
+        try {
+            const document = db.collection('pointInteret').doc(req.body.id);
+           
+            await document.update({
+                nom: req.body.nom,
+                description: req.body.description,
+                street: req.body.street,
+                postalCode: req.body.postalCode,
+                city: req.body.city,
+                country: req.body.country,
+                lat: req.body.lat,
+                lon: req.body.lon,
+                themes: req.body.themes,
+                url: req.body.url,
+                messages: req.body.messages
             });
 
             return res.status(200).send();
