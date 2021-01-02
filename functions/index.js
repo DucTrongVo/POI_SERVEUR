@@ -35,7 +35,8 @@ app.post('/api/users/create', (req,res) => {
                 mail: req.body.mail,
                 themes: req.body.themes,
                 photoURL: req.body.photoURL,
-                identifiant: req.body.identifiant
+                identifiant: req.body.identifiant,
+                pointsVisites: req.body.pointsVisites
             });
 
             return res.status(200).send("OK");
@@ -62,7 +63,8 @@ app.post('/api/pointInteret/create', (req,res) => {
                 lat: req.body.lat,
                 lon: req.body.lon,
                 themes: req.body.themes,
-                url: req.body.url
+                url: req.body.url,
+                //messages: req.body.messages
             });
 
             return res.status(200).send("OK");
@@ -114,7 +116,7 @@ app.get('/api/search/users/nom/:nom', (req,res) => {
             console.log("Error : ",error);
             return res.status(500).send(error);
         }
-    })();git 
+    })();
 });
 
 // get user by theme
@@ -200,7 +202,8 @@ app.get('/api/pointInteret', (req,res) => {
                         lat: doc.data().lat,
                         lon: doc.data().lon,
                         themes: doc.data().themes,
-                        url: doc.data().url
+                        url: doc.data().url,
+                        //messages: doc.data().messages
                     }
                     response.push(pointIteret);
                 }
@@ -216,6 +219,54 @@ app.get('/api/pointInteret', (req,res) => {
 });
 // Update
 
+// modify User
+app.put('/api/update/user', (req,res) => {
+    (async () => {
+        try {
+            const document = db.collection('utilisateur').doc(req.body.identifiant);
+
+            await document.update({
+                nom: req.body.nom,
+                prenom: req.body.prenom,
+                mail: req.body.mail,
+                themes: req.body.themes,
+                photoURL: req.body.photoURL,
+                identifiant: req.body.identifiant,
+                pointsVisites: req.body.pointsVisites
+            });
+
+            return res.status(200).send();
+        }catch(error) {
+            console.log("Error : ",error);
+            return res.status(500).send(error);
+        }
+    })();
+});
+
+// update points Visite
+app.put('/api/update/user/:identifiant/:pointVisite', (req,res) => {
+    (async () => {
+        try {
+            const document = db.collection('utilisateur').doc(req.params.identifiant);
+            let doc = (await document.get());
+            let pointsVisites = doc.data().pointsVisites;
+            if(pointsVisites === "") {
+                pointsVisites = req.params.pointVisite;
+            }
+            if(!pointsVisites.split(";").includes(req.params.pointVisite)){
+                pointsVisites += ";"+req.params.pointVisite;
+            }
+            await document.update({
+                pointsVisites: pointsVisites
+            });
+
+            return res.status(200).send();
+        }catch(error) {
+            console.log("Error : ",error);
+            return res.status(500).send(error);
+        }
+    })();
+});
 
 // Delete
 
